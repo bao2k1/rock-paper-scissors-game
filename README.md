@@ -1,69 +1,54 @@
-# Rock Paper Scissors Game
+Rock Paper Scissors Game
+A multiplayer Rock Paper Scissors game built with Spring Boot and React.
 
-Một trò chơi Oẳn tù tì nhiều người chơi được xây dựng bằng Spring Boot và React.
+🎮 Features
+Realtime multiplayer gaming (up to 10 players)
+Realtime communication via WebSocket
+Room management
+Player status tracking
+Scores and rankings
+User-friendly interface
+🛠 Tech Stack
+Backend
+Java 17
+Spring Boot
+WebSocket (STOMP)
+Lombok
+SLF4J
+Frontend
+React
+WebSocket client (@stomp/stompjs)
+Styled Components
+SockJS-client
+🚀 Getting Started
+System Requirements
+Java 17+
+Node.js 14+
+Maven 3.6+
+Backend will run at http://localhost:8081
 
-## 🎮 Tính năng
+Frontend will run at http://localhost:3000
 
-- Chơi game realtime với nhiều người chơi (tối đa 10 người)
-- Giao tiếp realtime qua WebSocket
-- Quản lý phòng chơi
-- Theo dõi trạng thái người chơi
-- Tính điểm và xếp hạng
-- Giao diện người dùng thân thiện
-
-## 🛠 Tech Stack
-
-### Backend
-- Java 17
-- Spring Boot
-- WebSocket (STOMP)
-- Lombok
-- SLF4J
-
-### Frontend
-- React
-- WebSocket client (@stomp/stompjs)
-- Styled Components
-- SockJS-client
-
-## 🚀 Bắt đầu
-
-### Yêu cầu hệ thống
-- Java 17+
-- Node.js 14+
-- Maven 3.6+
-
-Backend sẽ chạy tại `http://localhost:8081`
-
-Frontend sẽ chạy tại `http://localhost:3000`
-
-## 📡 WebSocket API
-
-### Send Channels (Client -> Server)
-- `/app/join` - Tham gia phòng
-- `/app/ready` - Sẵn sàng chơi
-- `/app/move` - Gửi nước đi
-
-### Subscribe Channels (Server -> Client)
-- `/topic/room/{roomId}/players` - Cập nhật danh sách người chơi
-- `/topic/room/{roomId}/status` - Cập nhật trạng thái game
-- `/topic/room/{roomId}/result` - Kết quả round
-
-## 🎯 Luật chơi
-
-1. Người chơi tham gia phòng
-2. Nhấn "Ready" để sẵn sàng
-3. Khi đủ người chơi và sẵn sàng, game bắt đầu
-4. Mỗi round, người chơi chọn một trong ba nước đi:
-   - ✊ Búa
-   - ✋ Bao
-   - ✌️ Kéo
-5. Kết quả được tính theo luật truyền thống:
-   - Búa thắng Kéo
-   - Kéo thắng Bao
-   - Bao thắng Búa
-6. Người chơi có điểm cao nhất sau 5 rounds là người thắng
-
-## 🔧 Cấu hình
-
-### Backend Configuration (application.properties)
+📡 WebSocket API
+Send Channels (Client -> Server)
+/app/join - Join room
+/app/ready - Ready play
+/app/move - Send a move
+Subscribe Channels (Server -> Client)
+/topic/room/{roomId}/players - Update player list
+/topic/room/{roomId}/status - Update game status
+/topic/room/{roomId}/result - Round result
+🎯 Game rules
+Players join the room
+Press "Ready" to get ready
+When enough players are ready, the game begins
+Each round, players choose one of three moves:
+✊ Rock
+✋ Paper
+✌️ Scissors
+Results are calculated according to traditional rules:
+Rock beats Scissors
+Scissors beats Paper
+Paper beats Rock
+The player with the highest score after 5 rounds wins
+🔧 Configuration
